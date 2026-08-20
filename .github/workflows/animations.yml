@@ -1,0 +1,647 @@
+name: Build All Animations
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+# Mencegah dua workflow menulis branch output bersamaan
+concurrency:
+  group: animations-output
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # ==========================================================
+      # 1. CHECKOUT MAIN
+      # ==========================================================
+
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+
+      # ==========================================================
+      # 2. BUAT FOLDER BUILD
+      # ==========================================================
+
+      - name: Prepare build directory
+        run: |
+          rm -rf generated
+          mkdir -p generated
+
+
+      # ==========================================================
+      # 3. GENERATE SNAKE
+      # ==========================================================
+
+      - name: Generate contribution Snake
+        uses: Platane/snk@v3
+        with:
+          github_user_name: farrelzzzzzzz
+          outputs: |
+            generated/github-contribution-grid-snake.svg
+            generated/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+
+      # ==========================================================
+      # 4. GENERATE ARCADE
+      # ==========================================================
+
+      - name: Generate Arcade Animation
+        run: |
+          cat > generated/game-arcade.svg <<'EOF'
+          <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 1000 320">
+
+            <rect width="1000" height="320"
+                  rx="28"
+                  fill="#0d1117"/>
+
+            <rect x="20" y="20"
+                  width="960"
+                  height="280"
+                  rx="22"
+                  fill="none"
+                  stroke="#b56cff"
+                  stroke-width="2"/>
+
+            <text x="500"
+                  y="70"
+                  text-anchor="middle"
+                  fill="#b56cff"
+                  font-family="monospace"
+                  font-size="34"
+                  font-weight="bold">
+              FARREL ARCADE
+            </text>
+
+            <text x="500"
+                  y="105"
+                  text-anchor="middle"
+                  fill="#8b949e"
+                  font-family="monospace"
+                  font-size="16">
+              DESIGN • CODE • GAME
+            </text>
+
+            <text x="150" y="180"
+                  text-anchor="middle"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="20">
+              SNAKE
+            </text>
+
+            <text x="350" y="180"
+                  text-anchor="middle"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="20">
+              TIC-TAC-TOE
+            </text>
+
+            <text x="650" y="180"
+                  text-anchor="middle"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="20">
+              PONG
+            </text>
+
+            <text x="850" y="180"
+                  text-anchor="middle"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="20">
+              ROCKBEAR
+            </text>
+
+            <circle cx="455"
+                    cy="245"
+                    r="7"
+                    fill="#b56cff">
+
+              <animate
+                attributeName="opacity"
+                values="1;0.2;1"
+                dur="1.2s"
+                repeatCount="indefinite"/>
+
+            </circle>
+
+            <text x="475"
+                  y="251"
+                  fill="#8b949e"
+                  font-family="monospace"
+                  font-size="16">
+              SYSTEM ONLINE
+            </text>
+
+          </svg>
+          EOF
+
+
+      # ==========================================================
+      # 5. TIC TAC TOE
+      # ==========================================================
+
+      - name: Generate Tic Tac Toe Animation
+        run: |
+          cat > generated/tic-tac-toe.svg <<'EOF'
+          <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 600 300">
+
+            <rect width="600"
+                  height="300"
+                  rx="24"
+                  fill="#0d1117"/>
+
+            <text x="300"
+                  y="45"
+                  text-anchor="middle"
+                  fill="#b56cff"
+                  font-family="monospace"
+                  font-size="25"
+                  font-weight="bold">
+              TIC-TAC-TOE
+            </text>
+
+            <g stroke="#8b949e"
+               stroke-width="4">
+
+              <line x1="220" y1="80"
+                    x2="220" y2="250"/>
+
+              <line x1="380" y1="80"
+                    x2="380" y2="250"/>
+
+              <line x1="140" y1="135"
+                    x2="460" y2="135"/>
+
+              <line x1="140" y1="195"
+                    x2="460" y2="195"/>
+
+            </g>
+
+            <text x="180" y="125"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="35">
+              X
+            </text>
+
+            <text x="260" y="125"
+                  fill="#b56cff"
+                  font-family="monospace"
+                  font-size="35">
+              O
+            </text>
+
+            <text x="340" y="185"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="35">
+              X
+            </text>
+
+            <text x="420" y="185"
+                  fill="#b56cff"
+                  font-family="monospace"
+                  font-size="35">
+              O
+            </text>
+
+            <circle cx="180"
+                    cy="225"
+                    r="10"
+                    fill="#b56cff">
+
+              <animate
+                attributeName="opacity"
+                values="1;0.2;1"
+                dur="1s"
+                repeatCount="indefinite"/>
+
+            </circle>
+
+            <text x="205"
+                  y="232"
+                  fill="#8b949e"
+                  font-family="monospace"
+                  font-size="15">
+              PLAYER TURN
+            </text>
+
+          </svg>
+          EOF
+
+
+      # ==========================================================
+      # 6. TERMINAL ANIMATION
+      # ==========================================================
+
+      - name: Generate Terminal Animation
+        run: |
+          cat > generated/terminal-boot.svg <<'EOF'
+          <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 1000 300">
+
+            <rect width="1000"
+                  height="300"
+                  rx="28"
+                  fill="#0d1117"/>
+
+            <text x="55"
+                  y="55"
+                  fill="#b56cff"
+                  font-family="monospace"
+                  font-size="22">
+              $ farrel --boot
+            </text>
+
+            <text x="55"
+                  y="100"
+                  fill="#e6edf3"
+                  font-family="monospace"
+                  font-size="17">
+              &gt; loading portfolio...
+            </text>
+
+            <text x="55"
+                  y="140"
+                  fill="#e6edf3"
+                  font-family="monospace"
+                  font-size="17">
+              &gt; design ........ OK
+            </text>
+
+            <text x="55"
+                  y="175"
+                  fill="#e6edf3"
+                  font-family="monospace"
+                  font-size="17">
+              &gt; coding ........ OK
+            </text>
+
+            <text x="55"
+                  y="210"
+                  fill="#e6edf3"
+                  font-family="monospace"
+                  font-size="17">
+              &gt; 3D ............ OK
+            </text>
+
+            <text x="55"
+                  y="245"
+                  fill="#b56cff"
+                  font-family="monospace"
+                  font-size="18">
+              &gt; system_ready_
+
+              <animate
+                attributeName="opacity"
+                values="1;0;1"
+                dur="1s"
+                repeatCount="indefinite"/>
+
+            </text>
+
+          </svg>
+          EOF
+
+
+      # ==========================================================
+      # 7. CREATIVE PIPELINE
+      # ==========================================================
+
+      - name: Generate Creative Animation
+        run: |
+          cat > generated/creative-flow.svg <<'EOF'
+          <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 1000 300">
+
+            <rect width="1000"
+                  height="300"
+                  rx="28"
+                  fill="#0d1117"/>
+
+            <text x="500"
+                  y="55"
+                  text-anchor="middle"
+                  fill="#b56cff"
+                  font-family="monospace"
+                  font-size="28"
+                  font-weight="bold">
+              CREATIVE PIPELINE
+            </text>
+
+            <text x="130" y="150"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="18">
+              DESIGN
+            </text>
+
+            <text x="330" y="150"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="18">
+              FIGMA
+            </text>
+
+            <text x="530" y="150"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="18">
+              3D
+            </text>
+
+            <text x="700" y="150"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="18">
+              CODE
+            </text>
+
+            <text x="860" y="150"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="18">
+              GAME
+            </text>
+
+            <path d="M190 145H285
+                     M390 145H485
+                     M570 145H665
+                     M745 145H825"
+                  stroke="#b56cff"
+                  stroke-width="4"
+                  stroke-dasharray="20 20">
+
+              <animate
+                attributeName="stroke-dashoffset"
+                from="0"
+                to="-40"
+                dur="1s"
+                repeatCount="indefinite"/>
+
+            </path>
+
+            <text x="500"
+                  y="235"
+                  text-anchor="middle"
+                  fill="#8b949e"
+                  font-family="monospace"
+                  font-size="15">
+              IDEA • PROTOTYPE • VISUAL • EXPERIENCE
+            </text>
+
+          </svg>
+          EOF
+
+
+      # ==========================================================
+      # 8. UI ANIMATION
+      # ==========================================================
+
+      - name: Generate UI Animation
+        run: |
+          cat > generated/ui-animation.svg <<'EOF'
+          <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 1000 300">
+
+            <rect width="1000"
+                  height="300"
+                  rx="28"
+                  fill="#0d1117"/>
+
+            <text x="500"
+                  y="60"
+                  text-anchor="middle"
+                  fill="#b56cff"
+                  font-family="monospace"
+                  font-size="28"
+                  font-weight="bold">
+              UI ANIMATION LAB
+            </text>
+
+            <rect x="100"
+                  y="110"
+                  width="800"
+                  height="35"
+                  rx="17"
+                  fill="#161b22"/>
+
+            <rect x="100"
+                  y="110"
+                  width="500"
+                  height="35"
+                  rx="17"
+                  fill="#b56cff">
+
+              <animate
+                attributeName="width"
+                values="100;700;350;800;500"
+                dur="4s"
+                repeatCount="indefinite"/>
+
+            </rect>
+
+            <text x="500"
+                  y="195"
+                  text-anchor="middle"
+                  fill="#e6edf3"
+                  font-family="monospace"
+                  font-size="18">
+              LOADING INTERFACE...
+            </text>
+
+            <circle cx="440"
+                    cy="235"
+                    r="6"
+                    fill="#b56cff">
+
+              <animate
+                attributeName="opacity"
+                values="1;0.1;1"
+                dur="0.8s"
+                repeatCount="indefinite"/>
+
+            </circle>
+
+            <circle cx="470"
+                    cy="235"
+                    r="6"
+                    fill="#b56cff">
+
+              <animate
+                attributeName="opacity"
+                values="0.1;1;0.1"
+                dur="0.8s"
+                repeatCount="indefinite"/>
+
+            </circle>
+
+            <circle cx="500"
+                    cy="235"
+                    r="6"
+                    fill="#b56cff">
+
+              <animate
+                attributeName="opacity"
+                values="0.1;1;0.1"
+                dur="0.8s"
+                begin="0.2s"
+                repeatCount="indefinite"/>
+
+            </circle>
+
+          </svg>
+          EOF
+
+
+      # ==========================================================
+      # 9. GAME HUD
+      # ==========================================================
+
+      - name: Generate Game HUD
+        run: |
+          cat > generated/game-hud.svg <<'EOF'
+          <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 1000 300">
+
+            <rect width="1000"
+                  height="300"
+                  rx="28"
+                  fill="#0d1117"/>
+
+            <rect x="80"
+                  y="55"
+                  width="840"
+                  height="190"
+                  rx="20"
+                  fill="#161b22"
+                  stroke="#30363d"
+                  stroke-width="2"/>
+
+            <text x="120"
+                  y="100"
+                  fill="#b56cff"
+                  font-family="monospace"
+                  font-size="24"
+                  font-weight="bold">
+              PLAYER: FARREL
+            </text>
+
+            <text x="120"
+                  y="145"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="18">
+              SCORE: 002320
+            </text>
+
+            <text x="120"
+                  y="180"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="18">
+              LEVEL: CREATIVE
+            </text>
+
+            <text x="120"
+                  y="215"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="18">
+              STATUS:
+            </text>
+
+            <text x="230"
+                  y="215"
+                  fill="#b56cff"
+                  font-family="monospace"
+                  font-size="18">
+              BUILDING
+            </text>
+
+            <circle cx="830"
+                    cy="150"
+                    r="45"
+                    fill="none"
+                    stroke="#b56cff"
+                    stroke-width="5">
+
+              <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0 830 150"
+                to="360 830 150"
+                dur="3s"
+                repeatCount="indefinite"/>
+
+            </circle>
+
+          </svg>
+          EOF
+
+
+      # ==========================================================
+      # 10. CHECKOUT OUTPUT
+      # ==========================================================
+
+      - name: Checkout output branch
+        uses: actions/checkout@v4
+        with:
+          ref: output
+          path: output-branch
+          fetch-depth: 0
+
+
+      # ==========================================================
+      # 11. COPY HASIL
+      #
+      # TIDAK ADA rm -rf output
+      # TIDAK ADA force deploy
+      # TIDAK ADA gh-pages action
+      #
+      # SVG LAIN TETAP AMAN
+      # ==========================================================
+
+      - name: Update generated SVG files
+        run: |
+          cp generated/*.svg output-branch/
+
+
+      # ==========================================================
+      # 12. COMMIT HANYA FILE SVG
+      # ==========================================================
+
+      - name: Commit animations
+        working-directory: output-branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -- '*.svg'
+
+          if git diff --cached --quiet; then
+            echo "No SVG changes."
+            exit 0
+          fi
+
+          git commit -m "Update portfolio animations"
+
+          git push origin HEAD:output
