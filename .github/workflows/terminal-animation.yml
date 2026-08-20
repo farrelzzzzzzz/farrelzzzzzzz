@@ -1,0 +1,24 @@
+name: Terminal Animation
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 1 * * *"
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate animation
+        run: |
+          mkdir -p dist
+          python3 scripts/build_animations.py terminal dist/terminal-boot.svg
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          build_dir: dist
+          target_branch: output
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
