@@ -1,24 +1,103 @@
 name: Arcade Animation
+
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "30 0 * * *"
-  push:
-    branches: [main]
+
 permissions:
   contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Generate animation
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Generate Arcade SVG
         run: |
-          mkdir -p dist
-          python3 scripts/build_animations.py arcade dist/game-arcade.svg
-      - uses: crazy-max/ghaction-github-pages@v4
+          mkdir -p generated
+
+          cat > generated/game-arcade.svg <<'EOF'
+          <svg xmlns="http://www.w3.org/2000/svg"
+               width="900"
+               height="300"
+               viewBox="0 0 900 300">
+
+            <rect width="900" height="300" rx="25" fill="#0d1117"/>
+
+            <rect x="20" y="20"
+                  width="860"
+                  height="260"
+                  rx="20"
+                  fill="none"
+                  stroke="#b56cff"
+                  stroke-width="2"/>
+
+            <text x="450" y="70"
+                  text-anchor="middle"
+                  fill="#b56cff"
+                  font-family="monospace"
+                  font-size="32"
+                  font-weight="bold">
+              FARREL ARCADE
+            </text>
+
+            <text x="450" y="110"
+                  text-anchor="middle"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="18">
+              SELECT • PLAY • EXPLORE
+            </text>
+
+            <g font-family="monospace"
+               font-size="20"
+               text-anchor="middle">
+
+              <text x="150" y="170" fill="#ffffff">🐍 SNAKE</text>
+              <text x="350" y="170" fill="#ffffff">❌ TIC-TAC-TOE</text>
+              <text x="550" y="170" fill="#ffffff">🏓 PONG</text>
+              <text x="750" y="170" fill="#ffffff">🐻 ROCKBEAR</text>
+
+            </g>
+
+            <circle cx="400" cy="225" r="7" fill="#b56cff">
+              <animate
+                attributeName="opacity"
+                values="1;0.2;1"
+                dur="1.2s"
+                repeatCount="indefinite"/>
+            </circle>
+
+            <text x="450" y="232"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="18">
+              SYSTEM ONLINE
+            </text>
+
+          </svg>
+          EOF
+
+      - name: Checkout output branch
+        uses: actions/checkout@v4
         with:
-          build_dir: dist
-          target_branch: output
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ref: output
+          path: output-branch
+
+      - name: Copy animation
+        run: |
+          cp generated/game-arcade.svg output-branch/game-arcade.svg
+
+      - name: Commit animation
+        working-directory: output-branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add game-arcade.svg
+
+          git diff --cached --quiet || git commit -m "Update arcade animation"
+
+          git push origin output
