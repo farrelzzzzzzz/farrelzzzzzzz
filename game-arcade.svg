@@ -1,20 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 1000 320">
+     viewBox="0 0 1000 340">
 
-  <rect width="1000" height="320"
-        rx="28"
-        fill="#0d1117"/>
+  <rect width="1000" height="340" rx="30" fill="#0d1117"/>
 
   <rect x="20" y="20"
-        width="960"
-        height="280"
-        rx="22"
+        width="960" height="300"
+        rx="25"
         fill="none"
         stroke="#b56cff"
         stroke-width="2"/>
 
-  <text x="500"
-        y="70"
+  <text x="500" y="65"
         text-anchor="middle"
         fill="#b56cff"
         font-family="monospace"
@@ -23,66 +19,60 @@
     FARREL ARCADE
   </text>
 
-  <text x="500"
-        y="105"
+  <text x="500" y="98"
         text-anchor="middle"
         fill="#8b949e"
         font-family="monospace"
-        font-size="16">
-    DESIGN • CODE • GAME
+        font-size="15">
+    SELECT • PLAY • EXPLORE
   </text>
 
-  <text x="150" y="180"
-        text-anchor="middle"
-        fill="#ffffff"
-        font-family="monospace"
-        font-size="20">
-    SNAKE
-  </text>
+  <g fill="#ffffff"
+     font-family="monospace"
+     font-size="19"
+     text-anchor="middle">
 
-  <text x="350" y="180"
-        text-anchor="middle"
-        fill="#ffffff"
-        font-family="monospace"
-        font-size="20">
-    TIC-TAC-TOE
-  </text>
+    <text x="130" y="170">🐍 SNAKE</text>
+    <text x="350" y="170">❌⭕ TIC-TAC-TOE</text>
+    <text x="650" y="170">🏓 PONG</text>
+    <text x="870" y="170">🧱 BREAKOUT</text>
 
-  <text x="650" y="180"
-        text-anchor="middle"
-        fill="#ffffff"
-        font-family="monospace"
-        font-size="20">
-    PONG
-  </text>
+  </g>
 
-  <text x="850" y="180"
-        text-anchor="middle"
-        fill="#ffffff"
-        font-family="monospace"
-        font-size="20">
-    ROCKBEAR
-  </text>
+  <rect x="130" y="205"
+        width="740"
+        height="4"
+        fill="#161b22"/>
 
-  <circle cx="455"
-          cy="245"
-          r="7"
+  <rect x="130" y="205"
+        width="100"
+        height="4"
+        fill="#b56cff">
+
+    <animate
+      attributeName="x"
+      values="130;740;130"
+      dur="3s"
+      repeatCount="indefinite"/>
+
+  </rect>
+
+  <circle cx="430" cy="260" r="6"
           fill="#b56cff">
 
     <animate
       attributeName="opacity"
-      values="1;0.2;1"
-      dur="1.2s"
+      values="1;0.15;1"
+      dur="1s"
       repeatCount="indefinite"/>
 
   </circle>
 
-  <text x="475"
-        y="251"
+  <text x="450" y="266"
         fill="#8b949e"
         font-family="monospace"
         font-size="16">
-    SYSTEM ONLINE
+    ARCADE ONLINE
   </text>
 
 </svg>

@@ -1,13 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg"
      viewBox="0 0 1000 300">
 
-  <rect width="1000"
-        height="300"
+  <rect width="1000" height="300"
         rx="28"
         fill="#0d1117"/>
 
-  <text x="500"
-        y="55"
+  <text x="500" y="55"
         text-anchor="middle"
         fill="#b56cff"
         font-family="monospace"
@@ -16,21 +14,21 @@
     CREATIVE PIPELINE
   </text>
 
-  <text x="130" y="150"
+  <text x="100" y="150"
         fill="#ffffff"
         font-family="monospace"
         font-size="18">
     DESIGN
   </text>
 
-  <text x="330" y="150"
+  <text x="300" y="150"
         fill="#ffffff"
         font-family="monospace"
         font-size="18">
     FIGMA
   </text>
 
-  <text x="530" y="150"
+  <text x="500" y="150"
         fill="#ffffff"
         font-family="monospace"
         font-size="18">
@@ -44,17 +42,17 @@
     CODE
   </text>
 
-  <text x="860" y="150"
+  <text x="870" y="150"
         fill="#ffffff"
         font-family="monospace"
         font-size="18">
     GAME
   </text>
 
-  <path d="M190 145H285
-           M390 145H485
-           M570 145H665
-           M745 145H825"
+  <path d="M160 145H260
+           M360 145H460
+           M560 145H660
+           M760 145H830"
         stroke="#b56cff"
         stroke-width="4"
         stroke-dasharray="20 20">
@@ -67,14 +65,5 @@
       repeatCount="indefinite"/>
 
   </path>
-
-  <text x="500"
-        y="235"
-        text-anchor="middle"
-        fill="#8b949e"
-        font-family="monospace"
-        font-size="15">
-    IDEA • PROTOTYPE • VISUAL • EXPERIENCE
-  </text>
 
 </svg>

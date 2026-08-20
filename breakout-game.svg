@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 800 420">
+
+  <rect width="800" height="420"
+        rx="28"
+        fill="#0d1117"/>
+
+  <text x="400" y="45"
+        text-anchor="middle"
+        fill="#b56cff"
+        font-family="monospace"
+        font-size="28"
+        font-weight="bold">
+    BREAKOUT
+  </text>
+
+  <!-- bricks -->
+
+  <g fill="#b56cff">
+
+    <rect x="100" y="80" width="100" height="28" rx="5"/>
+    <rect x="215" y="80" width="100" height="28" rx="5"/>
+    <rect x="330" y="80" width="100" height="28" rx="5"/>
+    <rect x="445" y="80" width="100" height="28" rx="5"/>
+    <rect x="560" y="80" width="100" height="28" rx="5"/>
+
+  </g>
+
+  <g fill="#ffffff">
+
+    <rect x="100" y="120" width="100" height="28" rx="5"/>
+    <rect x="215" y="120" width="100" height="28" rx="5"/>
+    <rect x="330" y="120" width="100" height="28" rx="5"/>
+    <rect x="445" y="120" width="100" height="28" rx="5"/>
+    <rect x="560" y="120" width="100" height="28" rx="5"/>
+
+  </g>
+
+  <!-- ball -->
+
+  <circle cx="400" cy="210"
+          r="9"
+          fill="#b56cff">
+
+    <animate
+      attributeName="cx"
+      values="400;620;180;400"
+      dur="3s"
+      repeatCount="indefinite"/>
+
+    <animate
+      attributeName="cy"
+      values="210;270;180;210"
+      dur="3s"
+      repeatCount="indefinite"/>
+
+  </circle>
+
+  <!-- paddle -->
+
+  <rect x="325" y="330"
+        width="150"
+        height="18"
+        rx="9"
+        fill="#ffffff">
+
+    <animate
+      attributeName="x"
+      values="325;500;150;325"
+      dur="3s"
+      repeatCount="indefinite"/>
+
+  </rect>
+
+  <text x="400" y="390"
+        text-anchor="middle"
+        fill="#8b949e"
+        font-family="monospace"
+        font-size="14">
+    SCORE 004820 • LEVEL 03
+  </text>
+
+</svg>
