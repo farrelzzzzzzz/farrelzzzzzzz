@@ -51,21 +51,42 @@ jobs:
               SELECT • PLAY • EXPLORE
             </text>
 
-            <g font-family="monospace"
-               font-size="20"
-               text-anchor="middle">
+            <text x="150" y="170"
+                  text-anchor="middle"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="20">
+              SNAKE
+            </text>
 
-              <text x="150" y="170" fill="#ffffff">🐍 SNAKE</text>
-              <text x="350" y="170" fill="#ffffff">❌ TIC-TAC-TOE</text>
-              <text x="550" y="170" fill="#ffffff">🏓 PONG</text>
-              <text x="750" y="170" fill="#ffffff">🐻 ROCKBEAR</text>
+            <text x="350" y="170"
+                  text-anchor="middle"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="20">
+              TIC-TAC-TOE
+            </text>
 
-            </g>
+            <text x="550" y="170"
+                  text-anchor="middle"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="20">
+              PONG
+            </text>
+
+            <text x="750" y="170"
+                  text-anchor="middle"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="20">
+              ROCKBEAR
+            </text>
 
             <circle cx="400" cy="225" r="7" fill="#b56cff">
               <animate
                 attributeName="opacity"
-                values="1;0.2;1"
+                values="1;0.15;1"
                 dur="1.2s"
                 repeatCount="indefinite"/>
             </circle>
@@ -86,11 +107,11 @@ jobs:
           ref: output
           path: output-branch
 
-      - name: Copy animation
+      - name: Copy animation to output
         run: |
           cp generated/game-arcade.svg output-branch/game-arcade.svg
 
-      - name: Commit animation
+      - name: Commit animation to output
         working-directory: output-branch
         run: |
           git config user.name "github-actions[bot]"
@@ -98,6 +119,9 @@ jobs:
 
           git add game-arcade.svg
 
-          git diff --cached --quiet || git commit -m "Update arcade animation"
-
-          git push origin output
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Add arcade animation"
+            git push origin output
+          fi
