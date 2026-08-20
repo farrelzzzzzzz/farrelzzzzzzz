@@ -624,18 +624,31 @@ Web development and creative web projects.
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=farrelzzzzzzz&show_icons=true&hide_border=true&theme=tokyonight&rank_icon=github"
-alt="GitHub stats">
+### ✦ GITHUB STATS
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=farrelzzzzzzz&theme=tokyonight"
+alt="GitHub Stats">
 
 <br><br>
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=farrelzzzzzzz&layout=compact&hide_border=true&theme=tokyonight"
-alt="Top languages">
+### ✦ TOP LANGUAGES
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=farrelzzzzzzz&theme=tokyonight"
+alt="Top Languages">
 
 <br><br>
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=farrelzzzzzzz&theme=tokyonight&hide_border=true"
-alt="GitHub streak">
+### ✦ MOST USED LANGUAGES
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=farrelzzzzzzz&theme=tokyonight"
+alt="Most Used Languages">
+
+<br><br>
+
+### ✦ PROFILE DETAILS
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=farrelzzzzzzz&theme=tokyonight"
+alt="GitHub Profile Details">
 
 </div>
 
