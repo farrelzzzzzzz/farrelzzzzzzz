@@ -11,28 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout main
+      - name: Checkout output branch
         uses: actions/checkout@v4
+        with:
+          ref: output
+          fetch-depth: 0
 
       - name: Generate Arcade SVG
         run: |
-          mkdir -p generated
-
-          cat > generated/game-arcade.svg <<'EOF'
-          <svg xmlns="http://www.w3.org/2000/svg"
-               width="900"
-               height="300"
-               viewBox="0 0 900 300">
-
+          cat > game-arcade.svg <<'EOF'
+          <svg xmlns="http://www.w3.org/2000/svg" width="900" height="300">
             <rect width="900" height="300" rx="25" fill="#0d1117"/>
-
-            <rect x="20" y="20"
-                  width="860"
-                  height="260"
-                  rx="20"
-                  fill="none"
-                  stroke="#b56cff"
-                  stroke-width="2"/>
+            <rect x="20" y="20" width="860" height="260"
+                  rx="20" fill="none" stroke="#b56cff" stroke-width="2"/>
 
             <text x="450" y="70"
                   text-anchor="middle"
@@ -45,83 +36,68 @@ jobs:
 
             <text x="450" y="110"
                   text-anchor="middle"
-                  fill="#ffffff"
+                  fill="white"
                   font-family="monospace"
                   font-size="18">
               SELECT • PLAY • EXPLORE
             </text>
 
-            <text x="150" y="170"
+            <text x="150" y="175"
                   text-anchor="middle"
-                  fill="#ffffff"
+                  fill="white"
                   font-family="monospace"
                   font-size="20">
               SNAKE
             </text>
 
-            <text x="350" y="170"
+            <text x="350" y="175"
                   text-anchor="middle"
-                  fill="#ffffff"
+                  fill="white"
                   font-family="monospace"
                   font-size="20">
               TIC-TAC-TOE
             </text>
 
-            <text x="550" y="170"
+            <text x="550" y="175"
                   text-anchor="middle"
-                  fill="#ffffff"
+                  fill="white"
                   font-family="monospace"
                   font-size="20">
               PONG
             </text>
 
-            <text x="750" y="170"
+            <text x="750" y="175"
                   text-anchor="middle"
-                  fill="#ffffff"
+                  fill="white"
                   font-family="monospace"
                   font-size="20">
               ROCKBEAR
             </text>
 
-            <circle cx="400" cy="225" r="7" fill="#b56cff">
+            <circle cx="390" cy="225" r="7" fill="#b56cff">
               <animate
                 attributeName="opacity"
                 values="1;0.15;1"
-                dur="1.2s"
+                dur="1s"
                 repeatCount="indefinite"/>
             </circle>
 
-            <text x="450" y="232"
-                  fill="#ffffff"
+            <text x="410" y="232"
+                  fill="white"
                   font-family="monospace"
                   font-size="18">
               SYSTEM ONLINE
             </text>
-
           </svg>
           EOF
 
-      - name: Checkout output branch
-        uses: actions/checkout@v4
-        with:
-          ref: output
-          path: output-branch
-
-      - name: Copy animation to output
-        run: |
-          cp generated/game-arcade.svg output-branch/game-arcade.svg
-
-      - name: Commit animation to output
-        working-directory: output-branch
+      - name: Commit animation
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add game-arcade.svg
 
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Add arcade animation"
-            git push origin output
-          fi
+          git commit -m "Add arcade animation" || echo "No changes"
+
+          git push origin HEAD:output
