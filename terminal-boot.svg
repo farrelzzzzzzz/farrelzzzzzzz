@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1000 300">
+
+  <rect width="1000"
+        height="300"
+        rx="28"
+        fill="#0d1117"/>
+
+  <text x="55"
+        y="55"
+        fill="#b56cff"
+        font-family="monospace"
+        font-size="22">
+    $ farrel --boot
+  </text>
+
+  <text x="55"
+        y="100"
+        fill="#e6edf3"
+        font-family="monospace"
+        font-size="17">
+    &gt; loading portfolio...
+  </text>
+
+  <text x="55"
+        y="140"
+        fill="#e6edf3"
+        font-family="monospace"
+        font-size="17">
+    &gt; design ........ OK
+  </text>
+
+  <text x="55"
+        y="175"
+        fill="#e6edf3"
+        font-family="monospace"
+        font-size="17">
+    &gt; coding ........ OK
+  </text>
+
+  <text x="55"
+        y="210"
+        fill="#e6edf3"
+        font-family="monospace"
+        font-size="17">
+    &gt; 3D ............ OK
+  </text>
+
+  <text x="55"
+        y="245"
+        fill="#b56cff"
+        font-family="monospace"
+        font-size="18">
+    &gt; system_ready_
+
+    <animate
+      attributeName="opacity"
+      values="1;0;1"
+      dur="1s"
+      repeatCount="indefinite"/>
+
+  </text>
+
+</svg>

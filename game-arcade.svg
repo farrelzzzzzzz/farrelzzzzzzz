@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1000 320">
+
+  <rect width="1000" height="320"
+        rx="28"
+        fill="#0d1117"/>
+
+  <rect x="20" y="20"
+        width="960"
+        height="280"
+        rx="22"
+        fill="none"
+        stroke="#b56cff"
+        stroke-width="2"/>
+
+  <text x="500"
+        y="70"
+        text-anchor="middle"
+        fill="#b56cff"
+        font-family="monospace"
+        font-size="34"
+        font-weight="bold">
+    FARREL ARCADE
+  </text>
+
+  <text x="500"
+        y="105"
+        text-anchor="middle"
+        fill="#8b949e"
+        font-family="monospace"
+        font-size="16">
+    DESIGN • CODE • GAME
+  </text>
+
+  <text x="150" y="180"
+        text-anchor="middle"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="20">
+    SNAKE
+  </text>
+
+  <text x="350" y="180"
+        text-anchor="middle"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="20">
+    TIC-TAC-TOE
+  </text>
+
+  <text x="650" y="180"
+        text-anchor="middle"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="20">
+    PONG
+  </text>
+
+  <text x="850" y="180"
+        text-anchor="middle"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="20">
+    ROCKBEAR
+  </text>
+
+  <circle cx="455"
+          cy="245"
+          r="7"
+          fill="#b56cff">
+
+    <animate
+      attributeName="opacity"
+      values="1;0.2;1"
+      dur="1.2s"
+      repeatCount="indefinite"/>
+
+  </circle>
+
+  <text x="475"
+        y="251"
+        fill="#8b949e"
+        font-family="monospace"
+        font-size="16">
+    SYSTEM ONLINE
+  </text>
+
+</svg>

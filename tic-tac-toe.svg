@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 600 300">
+
+  <rect width="600"
+        height="300"
+        rx="24"
+        fill="#0d1117"/>
+
+  <text x="300"
+        y="45"
+        text-anchor="middle"
+        fill="#b56cff"
+        font-family="monospace"
+        font-size="25"
+        font-weight="bold">
+    TIC-TAC-TOE
+  </text>
+
+  <g stroke="#8b949e"
+     stroke-width="4">
+
+    <line x1="220" y1="80"
+          x2="220" y2="250"/>
+
+    <line x1="380" y1="80"
+          x2="380" y2="250"/>
+
+    <line x1="140" y1="135"
+          x2="460" y2="135"/>
+
+    <line x1="140" y1="195"
+          x2="460" y2="195"/>
+
+  </g>
+
+  <text x="180" y="125"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="35">
+    X
+  </text>
+
+  <text x="260" y="125"
+        fill="#b56cff"
+        font-family="monospace"
+        font-size="35">
+    O
+  </text>
+
+  <text x="340" y="185"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="35">
+    X
+  </text>
+
+  <text x="420" y="185"
+        fill="#b56cff"
+        font-family="monospace"
+        font-size="35">
+    O
+  </text>
+
+  <circle cx="180"
+          cy="225"
+          r="10"
+          fill="#b56cff">
+
+    <animate
+      attributeName="opacity"
+      values="1;0.2;1"
+      dur="1s"
+      repeatCount="indefinite"/>
+
+  </circle>
+
+  <text x="205"
+        y="232"
+        fill="#8b949e"
+        font-family="monospace"
+        font-size="15">
+    PLAYER TURN
+  </text>
+
+</svg>

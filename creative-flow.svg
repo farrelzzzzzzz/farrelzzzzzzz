@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1000 300">
+
+  <rect width="1000"
+        height="300"
+        rx="28"
+        fill="#0d1117"/>
+
+  <text x="500"
+        y="55"
+        text-anchor="middle"
+        fill="#b56cff"
+        font-family="monospace"
+        font-size="28"
+        font-weight="bold">
+    CREATIVE PIPELINE
+  </text>
+
+  <text x="130" y="150"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="18">
+    DESIGN
+  </text>
+
+  <text x="330" y="150"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="18">
+    FIGMA
+  </text>
+
+  <text x="530" y="150"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="18">
+    3D
+  </text>
+
+  <text x="700" y="150"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="18">
+    CODE
+  </text>
+
+  <text x="860" y="150"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="18">
+    GAME
+  </text>
+
+  <path d="M190 145H285
+           M390 145H485
+           M570 145H665
+           M745 145H825"
+        stroke="#b56cff"
+        stroke-width="4"
+        stroke-dasharray="20 20">
+
+    <animate
+      attributeName="stroke-dashoffset"
+      from="0"
+      to="-40"
+      dur="1s"
+      repeatCount="indefinite"/>
+
+  </path>
+
+  <text x="500"
+        y="235"
+        text-anchor="middle"
+        fill="#8b949e"
+        font-family="monospace"
+        font-size="15">
+    IDEA • PROTOTYPE • VISUAL • EXPERIENCE
+  </text>
+
+</svg>

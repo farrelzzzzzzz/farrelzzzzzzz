@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1000 300">
+
+  <rect width="1000"
+        height="300"
+        rx="28"
+        fill="#0d1117"/>
+
+  <text x="500"
+        y="60"
+        text-anchor="middle"
+        fill="#b56cff"
+        font-family="monospace"
+        font-size="28"
+        font-weight="bold">
+    UI ANIMATION LAB
+  </text>
+
+  <rect x="100"
+        y="110"
+        width="800"
+        height="35"
+        rx="17"
+        fill="#161b22"/>
+
+  <rect x="100"
+        y="110"
+        width="500"
+        height="35"
+        rx="17"
+        fill="#b56cff">
+
+    <animate
+      attributeName="width"
+      values="100;700;350;800;500"
+      dur="4s"
+      repeatCount="indefinite"/>
+
+  </rect>
+
+  <text x="500"
+        y="195"
+        text-anchor="middle"
+        fill="#e6edf3"
+        font-family="monospace"
+        font-size="18">
+    LOADING INTERFACE...
+  </text>
+
+  <circle cx="440"
+          cy="235"
+          r="6"
+          fill="#b56cff">
+
+    <animate
+      attributeName="opacity"
+      values="1;0.1;1"
+      dur="0.8s"
+      repeatCount="indefinite"/>
+
+  </circle>
+
+  <circle cx="470"
+          cy="235"
+          r="6"
+          fill="#b56cff">
+
+    <animate
+      attributeName="opacity"
+      values="0.1;1;0.1"
+      dur="0.8s"
+      repeatCount="indefinite"/>
+
+  </circle>
+
+  <circle cx="500"
+          cy="235"
+          r="6"
+          fill="#b56cff">
+
+    <animate
+      attributeName="opacity"
+      values="0.1;1;0.1"
+      dur="0.8s"
+      begin="0.2s"
+      repeatCount="indefinite"/>
+
+  </circle>
+
+</svg>

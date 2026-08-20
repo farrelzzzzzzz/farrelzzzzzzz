@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1000 300">
+
+  <rect width="1000"
+        height="300"
+        rx="28"
+        fill="#0d1117"/>
+
+  <rect x="80"
+        y="55"
+        width="840"
+        height="190"
+        rx="20"
+        fill="#161b22"
+        stroke="#30363d"
+        stroke-width="2"/>
+
+  <text x="120"
+        y="100"
+        fill="#b56cff"
+        font-family="monospace"
+        font-size="24"
+        font-weight="bold">
+    PLAYER: FARREL
+  </text>
+
+  <text x="120"
+        y="145"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="18">
+    SCORE: 002320
+  </text>
+
+  <text x="120"
+        y="180"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="18">
+    LEVEL: CREATIVE
+  </text>
+
+  <text x="120"
+        y="215"
+        fill="#ffffff"
+        font-family="monospace"
+        font-size="18">
+    STATUS:
+  </text>
+
+  <text x="230"
+        y="215"
+        fill="#b56cff"
+        font-family="monospace"
+        font-size="18">
+    BUILDING
+  </text>
+
+  <circle cx="830"
+          cy="150"
+          r="45"
+          fill="none"
+          stroke="#b56cff"
+          stroke-width="5">
+
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 830 150"
+      to="360 830 150"
+      dur="3s"
+      repeatCount="indefinite"/>
+
+  </circle>
+
+</svg>
